@@ -3,21 +3,25 @@ import matplotlib.pyplot as plt
 
 class HALModeling2024Graphs:
     # Specify the full path to the CSV file
-    file_path = r'C:\Users\Hannah\Documents\HALModeling2024Outs\TrialRun.csv'
+    file_path = r'C:\Users\Hannah\Documents\HALModeling2024Outs\TrialRunCounts.csv'
 
     # Read the data from the CSV file
     df = pd.read_csv(file_path)
 
     # Extract data for plotting
     Timestep = df['Timestep']
-    lymphocyte_cells = df['Lymphocyte Cells']
-    tumor_cells = df['Tumor Cells']
-    doomed_cells = df['Doomed Cells']
+    lymphocyte_cells = df['Lymphocytes']
+    triggering_cells = df['TriggeringCells']
+    tumor_cells = df['TumorCells']
+    doomed_cells = df['DoomedCellsRad'] + df['DoomedCellsImm']
+    immune_response = df['ImmuneResponse']
 
-    plt.figure(figsize=(4,3))
+    plt.figure(figsize=(8,6))
     plt.plot(Timestep, lymphocyte_cells, label='Lymphocytes', marker='o', color='blue', markersize = 1)
+    plt.plot(Timestep, triggering_cells, label='Triggering Cells', marker='*', color='green', markersize=1)
     plt.plot(Timestep, tumor_cells, label='Tumor Cells', marker='s', color='red', markersize = 1)
     plt.plot(Timestep, doomed_cells, label='Doomed Cells', marker='^', color='gold', markersize = 1)
+    plt.plot(Timestep, immune_response, label='Immune Response', marker='p', color='black', markersize=1)
 
     #plt.title('Cell Counts Over Time')
     plt.xlabel('Timestep')
