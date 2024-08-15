@@ -13,7 +13,7 @@ class HALModeling2024Graphs:
     lymphocyte_cells = df['Lymphocytes']
     triggering_cells = df['TriggeringCells']
     tumor_cells = df['TumorCells']
-    doomed_cells = df['DoomedCellsRad'] + df['DoomedCellsImm']
+    doomed_cells = df['DoomedCells']
     immune_response = df['ImmuneResponse']
 
     plt.figure(figsize=(8,6))
