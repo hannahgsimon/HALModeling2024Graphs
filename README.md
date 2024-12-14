@@ -14,7 +14,7 @@ The **HALModeling2024Graphs** repository contains Python scripts to generate and
     - git clone https://github.com/hannahgsimon/HALModeling2024Graphs.git
 2. Navigate to the project directory with the cd command.
 3. Import the project into your preferred Python IDE.
-4. Build the project to ensure all dependencies are resolved.
+4. Build the project.
 
 ## Features
 - **Graph Generation**: Generates various plots to visualize tumor dynamics, immune response, and cell migration.
