@@ -36,7 +36,7 @@ In HALModeling2024Plots.py:
   timesteps_save_path = fr'C:\Users\Hannah\Documents\HALModeling2024Outs\BoxplotTimesteps.png'
   tumorcells_save_path = fr'C:\Users\Hannah\Documents\HALModeling2024Outs\BoxplotTumorCells.png'
   ```
-<br>
+
 The simulation starts with the below initial conditions (modifiable in the code). You can update these parameters in the indicated lines of code to fit your specific simulation requirements.
 - **<ins>Plot with Confidence Intervals</ins>:** Enabled.
      ```python
