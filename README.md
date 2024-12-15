@@ -16,6 +16,13 @@ The HALModeling2024Graphs repository contains Python scripts to generate and ana
 3. Import the project into your preferred Python IDE.
 4. Build the project.
 
+## Features
+- **<ins>Plot Trial Cell Populations</ins>:** Plots cell counts at each timestep for the last trial.
+- **<ins>Plot Trial Immune Response</ins>:** Plots the total immune response, primary immune response, and secondary immune response at each timestep.
+- **<ins>Plot Scenario Cell Populations with Confidence Intervals</ins>:** For the indicated scenario, plots the average cell counts with confidence intervals (±1 SD) at each timestep across all trials. For scenarios C, D, and E, will only plot trials with initial escape & radiation.
+- **<ins>Plot Tumor Cells at Equilibrium</ins>:** For trials in which bifurcation to escape occurred, plots a box and whisker plot of the number of tumor cells at equilibrium across each scenario.
+- **<ins>Plot Timesteps to Equilibrium</ins>:** For trials in which bifurcation to escape occurred, plots a box and whisker plot of the number of timesteps to equilibrium across each scenario.
+
 ## Usage
 Before running the code, you will need to update the file paths.  
 In HALModeling2024Graphs.py:  
@@ -53,7 +60,7 @@ The simulation starts with the below initial conditions (modifiable in the code)
      ```python
     timesteps500 = True
      ```
-- **<ins>Plot Immune Response</ins>:** Enabled. Plots the total immune response, primary immune response, and secondary immune response at each timestep. If `scenarioAnalysis = True`, plots the data for the indicated scenario. If `scenarioAnalysis = False`, plots the data for the last trial (titled `TrialRunCounts.csv`, not a specific scenario).
+- **<ins>Plot Immune Response</ins>:** Enabled. Plots the total immune response, primary immune response, and secondary immune response at each timestep. If `scenarioAnalysis = True`, plots the data for the last trial of the indicated scenario. If `scenarioAnalysis = False`, plots the data for the last trial (titled `TrialRunCounts.csv`, not a specific scenario).
      ```python
     graph_immune = True
      ```
