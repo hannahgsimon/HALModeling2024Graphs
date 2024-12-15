@@ -36,9 +36,11 @@ In HALModeling2024Plots.py:
   timesteps_save_path = fr'C:\Users\Hannah\Documents\HALModeling2024Outs\BoxplotTimesteps.png'
   tumorcells_save_path = fr'C:\Users\Hannah\Documents\HALModeling2024Outs\BoxplotTumorCells.png'
   ```
-
+##### Usage in HALModeling2024Graphs.py:
+- Input: TrialRunCounts.csv. Data of the last trial (general, not a scenario), a product of `printCounts = true` and `scenarioActive = true` in OnLattice2DGrid.java.
+- Input: A folder of trials of a specific scneario, a product of `scenarioActive = true` and `printCounts = true` and `scenarioActive = true`
 The simulation starts with the below initial conditions (modifiable in the code). You can update these parameters in the indicated lines of code to fit your specific simulation requirements.
-- **<ins>Plot with Confidence Intervals</ins>:** Disabled. For the indicated scenario, plots the average cell counts with confidence intervals (±1 SD) at each timestep across all trials. However, for scenarios C, D, and E, will only plot trials with initial escape & radiation.
+- **<ins>Plot with Confidence Intervals</ins>:** Disabled. For the indicated scenario, plots the average cell counts with confidence intervals (±1 SD) at each timestep across all trials. For scenarios C, D, and E, will only plot trials with initial escape & radiation.
      ```python
     plot_with_CIs = False
      ```
@@ -59,7 +61,13 @@ The simulation starts with the below initial conditions (modifiable in the code)
     graph_immune = True
      ```
 - Note: When both `plot_with_CIs = False` and `scenarioAnalysis = False`, for the last trial (titled TrialRunCounts.csv, not a specific scenario), plots the cell counts at each timestep.
-                    
+#### Usage in HALModeling2024Plots.py:
+- Input: A CSV file with 5 columns: "Scenario", "Trial" number, "Bifurcation to Escape" (Y/N), "Timesteps to Equilibrium", and "Tumor Cells at Equilibrium". The last 2 columns are blank for non-escape trials.
+
+  Output: For trials in which bifurcation to escape occurred,
+- Plots a box and whisker plot of the number of tumor cells at equilibrium across each scenario.
+- Plots a box and whisker plot of the number of timesteps to equilibrium across each scenario.
+
 ## Contributing
 Contributions are welcome! To contribute:
 1. Fork the repository.
