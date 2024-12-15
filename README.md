@@ -38,26 +38,27 @@ In HALModeling2024Plots.py:
   ```
 
 The simulation starts with the below initial conditions (modifiable in the code). You can update these parameters in the indicated lines of code to fit your specific simulation requirements.
-- **<ins>Plot with Confidence Intervals</ins>:** Enabled.
+- **<ins>Plot with Confidence Intervals</ins>:** Disabled. For the indicated scenario, plots the average cell counts with confidence intervals (±1 SD) at each timestep across all trials. However, for scenarios C, D, and E, will only plot trials with initial escape & radiation.
      ```python
-    plot_with_CIs = True
+    plot_with_CIs = False
      ```
-- **<ins>Scenario Analysis</ins>:** Disabled.
+- **<ins>Scenario Analysis</ins>:** Disabled. For the last trial of the indicated scenario, plots the cell counts at each timestep.
      ```python
      scenarioAnalysis = False
      ```
-- **<ins>Scenario</ins>:** A. When `scenarioAnalysis = True`, the indicated scenario will be graphed.
+- **<ins>Scenario</ins>:** A. The indicated scenario that will be graphed for `plot_with_CIs = True` or `scenarioAnalysis = True`.
      ```python
     scenario = 'A'
      ```
-- **<ins>Timesteps 500</ins>:** Enabled.
+- **<ins>Timesteps 500</ins>:** Enabled. For `plot_with_CIs = True`, will only plot the first 500 timesteps. In the original OnLattice2DGrid.java code, that is the timestep by which the triggering cell population reaches 0 since there are 500 initial triggering cells and 1 is removed from the grid every timestep; it may reach 0 sooner if cells are killed due to radiation.
      ```python
     timesteps500 = True
      ```
-- **<ins>Plot Immune Response</ins>:** Enabled.
+- **<ins>Plot Immune Response</ins>:** Enabled. Plots the total immune response, primary immune response, and secondary immune response at each timestep. If `scenarioAnalysis = True`, plots the data for the indicated scenario. If `scenarioAnalysis = False`, plots the data for the last trial (titled TrialRunCounts.csv, not a specific scenario).
      ```python
     graph_immune = True
      ```
+- Note: When both `plot_with_CIs = False` and `scenarioAnalysis = False`, for the last trial (titled TrialRunCounts.csv, not a specific scenario), plots the cell counts at each timestep.
                     
 ## Contributing
 Contributions are welcome! To contribute:
