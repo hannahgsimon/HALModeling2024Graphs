@@ -5,15 +5,19 @@ import os
 
 class HALModeling2024Graphs:
 
-    plot_with_CIs = True
+    plot_with_CIs = False
     scenarioAnalysis = False
-    scenario = 'D'
+    scenario = 'C'
     timesteps500 = True
+    graph_immune = True
 
     if plot_with_CIs and scenarioAnalysis:
         print("Error: plot_with_CIs and scenarioAnalysis cannot be true simultaneously.")
         sys.exit()
-    
+    if plot_with_CIs and graph_immune:
+        print("Error: plot_with_CIs and graph_immune cannot be true simultaneously, because graph_immune cannot plot multiple trials.")
+        sys.exit()
+
     # Specify the full path to the CSV file
     if not plot_with_CIs:
         file_path = r'C:\Users\Hannah\Documents\HALModeling2024Outs\TrialRunCounts.csv'
@@ -30,7 +34,7 @@ class HALModeling2024Graphs:
         # Read the data from the CSV file
         df = pd.read_csv(file_path)
 
-        timestep = 302
+        timestep = 444
         tumor_cells_at_timestep = df.loc[df['Timestep'] == timestep, 'TumorCells']
         if not tumor_cells_at_timestep.empty:
             print(f"Number of tumor cells at timestep {timestep}: {tumor_cells_at_timestep.values[0]}")
@@ -63,14 +67,14 @@ class HALModeling2024Graphs:
         tumor_cells = []
         doomed_cells = []
 
-        # Check if scenario is C or D
-        if scenario in ['C', 'D']:
+        # Check if scenario is C, D, or E
+        if scenario in ['C', 'D', 'E']:
             included_files = []  # List to keep track of included files
             # Read each file and append the data only if max timestep >= 200
             for file in all_files:
                 df = pd.read_csv(file)
 
-                # Check if the maximum timestep is 200 or more, to include include escape trials
+                # Check if the maximum timestep is 200 or more, to include escape trials
                 if df['Timestep'].max() >= 200:
                     Timestep.append(df['Timestep'])
                     lymphocyte_cells.append(df['Lymphocytes'])
@@ -169,11 +173,11 @@ class HALModeling2024Graphs:
     plt.legend()
     plt.legend(prop={'size': 14})
     plt.grid(True)
+    plt.ylim(0, 5000)  # Set y-axis limits from 0 to 5000
     save_path = fr'C:\Users\Hannah\Documents\HALModeling2024Outs\TrialRunGraphScenario{scenario}.png'
     plt.savefig(save_path, dpi=600, bbox_inches='tight')
 
     # Immune Graph
-    graph_immune = False
     if graph_immune:
         primary_immune_response = df['PrimaryImmuneResponse']
         secondary_immune_response = df['SecondaryImmuneResponse']
