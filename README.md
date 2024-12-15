@@ -25,7 +25,7 @@ The HALModeling2024Graphs repository contains Python scripts to generate and ana
 
 ## Usage
 Before running the code, you will need to update the file paths.  
-In HALModeling2024Graphs.py:  
+In `HALModeling2024Graphs.py`:  
   ```python
   file_path = r'C:\Users\Hannah\Documents\HALModeling2024Outs\TrialRunCounts.csv'
   folder_path = fr'C:\Users\Hannah\Documents\HALModeling2024Outs\Scenario{scenario}\*.csv'
@@ -33,13 +33,13 @@ In HALModeling2024Graphs.py:
   save_path = fr'C:\Users\Hannah\Documents\HALModeling2024Outs\TrialRunGraphScenario{scenario}.png'
   save_path = r'C:\Users\Hannah\Documents\HALModeling2024Outs\TrialRunGraphImmuneResponse.png'
    ```
-In HALModeling2024Plots.py:  
+In `HALModeling2024Plots.py`:  
   ```python
   file_path = r'C:\Users\Hannah\Documents\HALModeling2024Outs\AvgTimestepstoEscape.csv'
   timesteps_save_path = fr'C:\Users\Hannah\Documents\HALModeling2024Outs\BoxplotTimesteps.png'
   tumorcells_save_path = fr'C:\Users\Hannah\Documents\HALModeling2024Outs\BoxplotTumorCells.png'
   ```
-##### Usage in HALModeling2024Graphs.py:
+##### Usage in `HALModeling2024Graphs.py`:
 - Input 1: `TrialRunCounts.csv` — Contains data from the final trial (non-scenario-specific), generated when `printCounts = true` and `scenarioActive = false` in `OnLattice2DGrid.java`.
 - Input 2: A folder containing trials for a specific scenario, generated when `printCounts = true` and `scenarioActive = true` in `OnLattice2DGrid.java`.
 
@@ -66,7 +66,7 @@ The simulation starts with the below initial conditions (modifiable in the code)
      ```
 - Note: When both `plot_with_CIs = False` and `scenarioAnalysis = False`, plots cell counts at each timestep for the last trial (`TrialRunCounts.csv`, not tied to a specific scenario).
 
-#### Usage in HALModeling2024Plots.py:
+#### Usage in `HALModeling2024Plots.py`:
 - Input: A CSV file with 5 columns: "Scenario", "Trial" number, "Bifurcation to Escape" (Y/N), "Timesteps to Equilibrium", and "Tumor Cells at Equilibrium". The last 2 columns are blank for non-escape trials.
 - Output 1: For trials in which bifurcation to escape occurred, plots a box and whisker plot of the number of tumor cells at equilibrium across each scenario.
 - Output 2: For trials in which bifurcation to escape occurred, plots a box and whisker plot of the number of timesteps to equilibrium across each scenario.
